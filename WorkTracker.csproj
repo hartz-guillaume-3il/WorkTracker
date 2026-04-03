@@ -81,6 +81,9 @@
 	  <MauiXaml Update="MonApp\Views\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MonApp\Views\ProjectEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MonApp\Views\ProjectsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
