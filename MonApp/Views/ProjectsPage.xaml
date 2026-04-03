@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Page des projets — à compléter (Partie 4 du TP)
+
+    TODO Partie 4.1 : remplacer le contenu par une CollectionView nommée cvProjets
+    TODO Partie 4.1 : définir le ItemTemplate avec Border + Labels (nom + description)
+    TODO Partie 4.3 : observer le comportement avec List<> puis ObservableCollection<>
+-->
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WorkTracker.MonApp.Views.ProjectsPage"
+    Title="Projets">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+
+        <Label
+            Text="Liste des projets"
+            FontSize="22"
+            TextColor="{StaticResource Primary}"
+            HorizontalOptions="Center" />
+
+        <CollectionView
+            x:Name="cvProjets"
+            Margin="16"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        StrokeThickness="1"
+                        Stroke="{StaticResource Gray300}"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 8"
+                        Margin="0,6"
+                        Padding="16">
+
+                        <HorizontalStackLayout Spacing="16">
+
+                            <!-- Cercle des initiales -->
+                            <Border
+                                WidthRequest="48"
+                                HeightRequest="48"
+                                BackgroundColor="{StaticResource Primary}"
+                                StrokeShape="RoundRectangle 24"
+                                StrokeThickness="0"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    Text="{Binding Initials}"
+                                    TextColor="white"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center" />
+                            </Border>
+
+                            <!-- Texte -->
+                            <VerticalStackLayout Spacing="4" VerticalOptions="Center">
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="{StaticResource Primary}" />
+
+                                <Label
+                                    Text="{Binding Description}"
+                                    FontSize="14"
+                                    TextColor="{StaticResource Gray500}" />
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

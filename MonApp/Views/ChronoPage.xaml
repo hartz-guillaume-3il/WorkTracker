@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Page chronomètre — à compléter progressivement au fil du TP.
+
+    TODO Partie 2 : déclarer xmlns:vm et ajouter ContentPage.BindingContext
+    TODO Partie 2 : remplacer les valeurs statiques par des {Binding ...}
+    TODO Partie 4 : remplacer Clicked par Command={Binding ToggleCommand} etc.
+-->
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WorkTracker.MonApp.ViewModels"
+    x:Class="WorkTracker.MonApp.Views.ChronoPage"
+    Title="Chrono">
+
+    <ContentPage.BindingContext>
+        <vm:ChronoViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="32" Padding="30" VerticalOptions="Center">
+
+        <!-- Nom du projet -->
+        <Label
+            Text="{Binding NomProjet}"
+            FontSize="18"
+            TextColor="{StaticResource Gray500}"
+            HorizontalOptions="Center" />
+
+        <!-- Affichage du temps -->
+        <Label
+            Text="{Binding TempsEcoule}"
+            FontSize="64"
+            FontAttributes="Bold"
+            TextColor="{StaticResource Primary}"
+            HorizontalOptions="Center" />
+
+        <!-- Bouton principal Démarrer / Arrêter -->
+        <Button
+            Text="{Binding LabelBouton}"
+            Command="{Binding ToggleCommand}"
+            WidthRequest="200"
+            HorizontalOptions="Center" />
+
+        <!-- Bouton Reset -->
+        <Button
+            Text="↺  Réinitialiser"
+            Command="{Binding OnResetClicked}"
+            BackgroundColor="{StaticResource Gray300}"
+            WidthRequest="200"
+            HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

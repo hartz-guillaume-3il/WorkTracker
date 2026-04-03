@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WorkTracker.MonApp.Models.ViewModels"
+    x:Class="WorkTracker.MonApp.Views.HomePage"
+    Title="Accueil">
+
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+        <Label Text="{Binding Titre}"
+               FontSize="28"
+               FontAttributes="Bold"
+               TextColor="{StaticResource Primary}"
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding Message}"
+               FontSize="16"
+               TextColor="{StaticResource Gray500}"
+               HorizontalOptions="Center" />
+        
+        <Label Text="{Binding ResumeProjets}"
+               FontSize="16"
+               TextColor="{StaticResource Gray500}"
+               HorizontalOptions="Center" />
+
+
+        <Label Text="{Binding NombreProjets, StringFormat='Projets actifs : {0}'}"
+               FontSize="18"
+               TextColor="{StaticResource Secondary}"
+               HorizontalOptions="Center" />
+
+        <Button Text="+ 1 projet (simulé)"
+                Clicked="OnAjouterProjetClicked"
+                HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

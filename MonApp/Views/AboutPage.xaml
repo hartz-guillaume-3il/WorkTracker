@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Page "À propos" — fournie comme exemple de data binding simple.
+
+    Points clés à observer :
+    1. xmlns:vm déclare un préfixe pour accéder au namespace ViewModels
+    2. ContentPage.BindingContext instancie le ViewModel directement en XAML
+    3. {Binding NomPropriete} lie la valeur d'un contrôle à une propriété du ViewModel
+    4. Le code-behind (AboutPage.xaml.cs) est minimal : seule la navigation externe y est gérée
+-->
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WorkTracker.MonApp.ViewModels"
+    x:Class="WorkTracker.MonApp.Views.AboutPage"
+    Title="À propos">
+
+    <!-- Le BindingContext est l'objet dont les propriétés sont accessibles en {Binding} -->
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+            <Label
+                Text="{Binding AppName}"
+                FontSize="32"
+                FontAttributes="Bold"
+                TextColor="{StaticResource Primary}"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="{Binding Version}"
+                FontSize="18"
+                TextColor="{StaticResource Gray500}"
+                HorizontalOptions="Center" />
+
+            <BoxView
+                HeightRequest="1"
+                Color="{StaticResource Secondary}"
+                Margin="0,8" />
+
+            <Label
+                Text="{Binding Description}"
+                FontSize="15"
+                TextColor="{StaticResource Gray600}"
+                HorizontalTextAlignment="Center" />
+
+            <Button
+                Text="Site de l'école"
+                Clicked="OnWebsiteClicked"
+                HorizontalOptions="Center"
+                Margin="0,16,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
