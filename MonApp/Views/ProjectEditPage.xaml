@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Page d'ajout d'un projet.
+    TODO Partie 3.2 : déclarer xmlns:vm et BindingContext → ProjectEditViewModel
+    TODO Partie 3.2 : lier Entry Name à {Binding Name}
+    TODO Partie 3.2 : lier Editor Description à {Binding Description}
+    TODO Partie 3.2 : bouton Enregistrer → Command={Binding SaveCommand}
+-->
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WorkTracker.MonApp.Views.ProjectEditPage"
+    Title="Nouveau projet">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="24">
+
+            <Label
+                Text="{Binding Name}"
+                FontSize="14"
+                TextColor="{StaticResource Gray500}" />
+            <!-- TODO : Entry liée à {Binding Name} -->
+            <Entry Placeholder="Ex : Refonte site web" />
+
+            <Label
+                Text="{Binding Description}"
+                FontSize="14"
+                TextColor="{StaticResource Gray500}"
+                Margin="0,8,0,0" />
+            <!-- TODO : Editor lié à {Binding Description} -->
+            <Editor
+                Placeholder="Description courte du projet"
+                HeightRequest="80" />
+
+            <!-- TODO : Button avec Command={Binding SaveCommand} -->
+            <Button
+                Text="Enregistrer"
+                Command="{Binding SaveCommand}"
+                Margin="0,16,0,0"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
