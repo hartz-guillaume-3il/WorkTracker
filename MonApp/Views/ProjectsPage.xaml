@@ -78,6 +78,13 @@
             </CollectionView.ItemTemplate>
 
         </CollectionView>
+        <ContentPage.ToolbarItems>
+            <ToolbarItem
+                Text="Ajouter"
+                Clicked="OnAddClicked"
+                IconImageSource="{FontImageSource Glyph='+',
+                FontFamily='OpenSansRegular', Color=White, Size=22}" />
+        </ContentPage.ToolbarItems>
 
     </VerticalStackLayout>
 </ContentPage>

@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "MonApp\\Services\\ProjectService.cs",
               "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Services\\ProjectService.cs",
               "RelativeToolTip": "MonApp\\Services\\ProjectService.cs",
-              "ViewState": "AgIAAA8AAAAAKDMzMzMbwDMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-03T09:03:11.834Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "MonApp\\Models\\ViewModels\\RelayCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T10:23:07.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-26T10:23:07.923Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "AppShell.xaml",
               "ViewState": "AgIAAAQAAAAAAAAAAAAiwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-26T08:11:48.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-26T08:11:48.806Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "MonApp\\Views\\ChronoPage.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:10:56.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-26T08:10:56.517Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "MonApp\\Models\\ViewModels\\ChronoViewModel.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAowAsAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:10:43.711Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-26T08:10:43.711Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "MonApp\\Views\\ChronoPage.xaml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-26T08:10:02.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-26T08:10:02.771Z"
             }
           ]
         }
