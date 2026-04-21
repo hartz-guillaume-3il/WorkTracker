@@ -1,40 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\monapp\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:monapp\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\monapp\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:monapp\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\monapp\\views\\projectspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:monapp\\views\\projectspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\monapp\\views\\projecteditpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:monapp\\views\\projecteditpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|c:\\dev\\i2\\dotnetmaui\\worktracker\\monapp\\models\\viewmodels\\projecteditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE0B6FA6-0859-11C8-4BC6-F8C91A495CE8}|WorkTracker.csproj|solutionrelative:monapp\\models\\viewmodels\\projecteditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -42,115 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Project.cs",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Models\\Project.cs",
-              "RelativeDocumentMoniker": "MonApp\\Models\\Project.cs",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Models\\Project.cs",
-              "RelativeToolTip": "MonApp\\Models\\Project.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T15:13:36.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProjectService.cs",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Services\\ProjectService.cs",
-              "RelativeDocumentMoniker": "MonApp\\Services\\ProjectService.cs",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Services\\ProjectService.cs",
-              "RelativeToolTip": "MonApp\\Services\\ProjectService.cs",
-              "ViewState": "AgIAABMAAAAAmJmZmZkNwBcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T14:24:38.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-21T14:21:41.093Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T14:21:39.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProjectEditViewModel.cs",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Models\\ViewModels\\ProjectEditViewModel.cs",
-              "RelativeDocumentMoniker": "MonApp\\Models\\ViewModels\\ProjectEditViewModel.cs",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Models\\ViewModels\\ProjectEditViewModel.cs",
-              "RelativeToolTip": "MonApp\\Models\\ViewModels\\ProjectEditViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T09:27:56.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProjectEditPage.xaml.cs",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Views\\ProjectEditPage.xaml.cs",
-              "RelativeDocumentMoniker": "MonApp\\Views\\ProjectEditPage.xaml.cs",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Views\\ProjectEditPage.xaml.cs",
-              "RelativeToolTip": "MonApp\\Views\\ProjectEditPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T13:59:19.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\AppShell.xaml",
-              "RelativeDocumentMoniker": "AppShell.xaml",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\AppShell.xaml",
-              "RelativeToolTip": "AppShell.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-21T14:03:21.563Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProjectsPage.xaml",
-              "DocumentMoniker": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Views\\ProjectsPage.xaml",
-              "RelativeDocumentMoniker": "MonApp\\Views\\ProjectsPage.xaml",
-              "ToolTip": "C:\\DEV\\I2\\DotnetMAUI\\WorkTracker\\MonApp\\Views\\ProjectsPage.xaml",
-              "RelativeToolTip": "MonApp\\Views\\ProjectsPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-21T14:02:43.395Z",
-              "EditorCaption": ""
             }
           ]
         }
