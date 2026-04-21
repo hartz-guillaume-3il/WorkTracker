@@ -1,3 +1,5 @@
+using WorkTracker.MonApp.ViewModels;
+
 namespace WorkTracker.MonApp.Views;
 
 public partial class ProjectEditPage : ContentPage
@@ -6,5 +8,6 @@ public partial class ProjectEditPage : ContentPage
     {
         InitializeComponent();
         // TODO Partie 3.2 : affecter BindingContext = new ProjectEditViewModel();
+        BindingContext = new ProjectEditViewModel();
     }
 }
