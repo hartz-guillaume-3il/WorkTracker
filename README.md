@@ -63,6 +63,62 @@ WorkTracker/
 └── WorkTracker.csproj.Backup.tmp
 ```
 
+## Diagramme MVVM visuel
+
+Le fonctionnement global du projet peut être représenté ainsi :
+
+```text
++---------------------------+
+|         Views             |
+|---------------------------|
+| AboutPage.xaml            |
+| ChronoPage.xaml           |
+| HomePage.xaml             |
+| ProjectEditPage.xaml      |
+| ProjectsPage.xaml         |
+| SessionsPage.xaml         |
++------------+--------------+
+             |
+             | DataBinding / Command
+             v
++---------------------------+
+|       ViewModels          |
+|---------------------------|
+| AboutViewModel            |
+| ChronoViewModel           |
+| HomeViewModel             |
+| ProjectEditViewModel      |
+| ...                       |
++------------+--------------+
+             |
+             | utilise
+             v
++---------------------------+
+|         Services          |
+|---------------------------|
+| ProjectService            |
+| SessionService            |
++------------+--------------+
+             |
+             | manipule
+             v
++---------------------------+
+|          Models           |
+|---------------------------|
+| Project                   |
+| WorkSession               |
++---------------------------+
+```
+
+## Lecture du diagramme
+
+| Couche | Rôle |
+|---|---|
+| Views | Affichent l’interface et capturent les actions utilisateur |
+| ViewModels | Portent les propriétés, commandes et traitements liés à l’interface |
+| Services | Centralisent l’accès et la gestion des données |
+| Models | Représentent les objets métiers manipulés par l’application |
+
 ## Rôle des dossiers et fichiers
 
 | Élément | Rôle |
