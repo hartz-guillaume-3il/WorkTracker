@@ -1,14 +1,14 @@
 ﻿using WorkTracker.MonApp.Views;
 
-namespace WorkTracker.MonApp;
-
-public partial class AppShell : Shell
+namespace WorkTracker
 {
-    public AppShell()
+    public partial class AppShell : Shell
     {
-        InitializeComponent();
-
-        Routing.RegisterRoute(nameof(ProjectEditPage), typeof(ProjectEditPage));
-        Routing.RegisterRoute(nameof(SessionsPage), typeof(SessionsPage));
+        public AppShell()
+        {
+            InitializeComponent();
+            Routing.RegisterRoute(nameof(ProjectEditPage), typeof(ProjectEditPage));
+            Routing.RegisterRoute(nameof(SessionsPage), typeof(SessionsPage));
+        }
     }
 }
