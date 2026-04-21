@@ -3,60 +3,90 @@
 ## Présentation
 
 WorkTracker est une application .NET MAUI de suivi de projets et de sessions de travail.
-Le projet propose une interface simple, organisée autour de plusieurs écrans accessibles depuis une navigation par onglets.
+Le projet est structuré autour d’une organisation claire séparant les modèles, les services, les vues et les ViewModels.
 
-L’application permet actuellement de :
-- consulter une liste de projets ;
-- ajouter un nouveau projet ;
+L’application permet notamment de :
+- gérer des projets ;
+- gérer des sessions de travail ;
 - utiliser un chronomètre ;
-- afficher une page d’information « À propos ».
+- naviguer entre plusieurs pages via Shell.
 
 ## Fonctionnalités principales
 
 | Fonctionnalité | Description | État |
 |---|---|---|
-| Chronomètre | Démarrage, arrêt, remise à zéro d’un chrono | Disponible |
-| Gestion des projets | Affichage d’une liste de projets en mémoire | Disponible |
-| Ajout de projet | Création d’un projet avec nom et description | Disponible |
-| Navigation Shell | Navigation par onglets entre les pages principales | Disponible |
-| Persistance | Stockage en mémoire via un service singleton | En cours d’évolution |
+| Chronomètre | Démarrage, arrêt et remise à zéro | Disponible |
+| Gestion des projets | Liste et ajout de projets | Disponible |
+| Gestion des sessions | Association de sessions à un projet | Disponible / en évolution |
+| Navigation | Navigation entre les pages principales | Disponible |
+| Stockage | Données gérées par services applicatifs | Disponible |
 
 ## Architecture du projet
 
 Le projet suit une organisation proche du modèle MVVM.
+L’arborescence réelle du projet est la suivante :
 
 ```text
 WorkTracker/
-├── AppShell.xaml
+├── Dépendances/
+├── Properties/
 ├── MonApp/
 │   ├── Models/
-│   │   └── Project.cs
+│   │   ├── ViewModels/
+│   │   ├── Project.cs
+│   │   └── WorkSession.cs
 │   ├── Services/
-│   │   └── ProjectService.cs
-│   ├── Models/ViewModels/
-│   │   ├── ChronoViewModel.cs
-│   │   ├── ProjectEditViewModel.cs
-│   │   ├── HomeViewModel.cs
-│   │   ├── AboutViewModel.cs
-│   │   └── RelayCommand.cs
+│   │   ├── ProjectService.cs
+│   │   └── SessionService.cs
 │   └── Views/
-│       ├── ChronoPage.xaml
-│       ├── ProjectsPage.xaml
-│       ├── ProjectEditPage.xaml
 │       ├── AboutPage.xaml
-│       └── HomePage.xaml
+│       ├── ChronoPage.xaml
+│       ├── HomePage.xaml
+│       ├── ProjectEditPage.xaml
+│       ├── ProjectsPage.xaml
+│       └── SessionsPage.xaml
+├── Platforms/
+├── Resources/
+│   ├── AppIcon/
+│   ├── Fonts/
+│   ├── Images/
+│   ├── Raw/
+│   ├── Splash/
+│   └── Styles/
+├── .gitattributes
+├── .gitignore
+├── App.xaml
+├── AppShell.xaml
+├── MainPage.xaml
+├── MauiProgram.cs
+├── README.md
+└── WorkTracker.csproj.Backup.tmp
 ```
 
-## Composants importants
+## Rôle des dossiers et fichiers
 
-### 1. Navigation
-La navigation principale repose sur `Shell` avec trois onglets visibles :
-- `Chrono`
-- `Projets`
-- `À propos`
+| Élément | Rôle |
+|---|---|
+| `MonApp/Models` | Contient les modèles métiers comme `Project` et `WorkSession` |
+| `MonApp/Models/ViewModels` | Contient la logique de présentation selon MVVM |
+| `MonApp/Services` | Contient les services de gestion des données |
+| `MonApp/Views` | Contient les interfaces XAML |
+| `Resources` | Contient les ressources graphiques, polices, images et styles |
+| `AppShell.xaml` | Définit la navigation principale |
+| `MauiProgram.cs` | Configure l’application MAUI |
+| `App.xaml` | Définit les ressources globales de l’application |
+| `MainPage.xaml` | Page principale ou point d’entrée UI selon la configuration |
 
-### 2. Modèle métier
-Le modèle `Project` contient les informations suivantes :
+## Détail de l’architecture logique
+
+### 1. Models
+Les modèles représentent les données métiers manipulées par l’application.
+
+Exemples :
+- `Project.cs` : représente un projet ;
+- `WorkSession.cs` : représente une session de travail.
+
+Exemple de modèle :
 
 ```csharp
 public class Project
@@ -71,117 +101,73 @@ public class Project
 }
 ```
 
-### 3. Service de données
-Le service `ProjectService` gère actuellement les projets en mémoire avec un singleton simple.
-Cela permet de séparer la logique d’accès aux données de l’interface utilisateur.
+### 2. ViewModels
+Les ViewModels assurent la liaison entre les vues XAML et la logique applicative.
+Ils gèrent les commandes, les propriétés observables et les traitements de l’interface.
+
+Pseudo-code général MVVM :
+
+```text
+la vue affiche les données
+le ViewModel expose les propriétés et commandes
+le service fournit ou modifie les données
+le modèle représente les objets métiers
+```
+
+### 3. Services
+Les services centralisent la gestion des données.
+
+Exemples :
+- `ProjectService.cs` : gestion des projets ;
+- `SessionService.cs` : gestion des sessions.
 
 Pseudo-code simplifié :
 
 ```text
-initialiser la liste des projets
-si ajout d’un projet
-    générer un identifiant
-    ajouter le projet à la collection
-si suppression d’un projet
-    retirer le projet de la collection
-retourner la liste pour l’affichage
+créer une collection en mémoire
+ajouter un élément
+supprimer un élément
+retourner la liste à la vue ou au ViewModel
 ```
 
-### 4. ViewModels
-Le projet utilise `CommunityToolkit.Mvvm` pour simplifier les propriétés observables et les commandes.
+### 4. Views
+Les vues XAML définissent l’interface utilisateur.
 
-Exemples :
-- `ChronoViewModel` : logique du chronomètre ;
-- `ProjectEditViewModel` : validation et sauvegarde d’un projet ;
-- `AboutViewModel` et `HomeViewModel` : logique des pages d’information/accueil.
+Pages présentes dans le projet :
+- `HomePage.xaml`
+- `ChronoPage.xaml`
+- `ProjectsPage.xaml`
+- `ProjectEditPage.xaml`
+- `SessionsPage.xaml`
+- `AboutPage.xaml`
 
-## Fonctionnement du chronomètre
+## Navigation
 
-Le chronomètre repose sur un `IDispatcherTimer` mis à jour chaque seconde.
+La navigation principale s’appuie sur `AppShell.xaml`.
+Elle permet d’organiser l’application en plusieurs sections accessibles simplement.
 
-Pseudo-code :
-
-```text
-au démarrage
-    créer un timer de 1 seconde
-à chaque tick
-    incrémenter le temps écoulé
-si bouton démarrer
-    lancer le timer
-si bouton arrêter
-    arrêter le timer
-si bouton reset
-    remettre le temps à zéro
-```
-
-## Gestion des projets
-
-La page `ProjectsPage` affiche les projets via un `CollectionView`.
-Un bouton dans la barre d’outils permet d’ouvrir la page d’ajout.
-
-Pseudo-code :
+Pseudo-code de navigation :
 
 ```text
-quand la page apparaît
-    charger les projets depuis ProjectService
-quand l’utilisateur clique sur Ajouter
-    naviguer vers la page d’édition
-quand l’utilisateur sélectionne un projet
-    naviguer vers la page de sessions associée
+lancer l’application
+charger AppShell
+ouvrir une page principale
+naviguer vers une autre page selon l’action utilisateur
 ```
 
 ## Technologies utilisées
 
-| Technologie | Rôle |
+| Technologie | Usage |
 |---|---|
-| .NET MAUI | Application multiplateforme |
-| C# | Logique applicative |
-| XAML | Interface utilisateur |
-| CommunityToolkit.Mvvm | MVVM, propriétés observables et commandes |
-| Shell | Navigation structurée |
+| .NET MAUI | Développement multiplateforme |
+| C# | Logique métier et services |
+| XAML | Construction des interfaces |
+| MVVM Toolkit | Gestion des commandes et propriétés observables |
+| Shell | Navigation dans l’application |
 
-## Lancer le projet en local
+## Exemple de logique applicative
 
-### Prérequis
-
-| Outil | Version conseillée |
-|---|---|
-| Visual Studio 2022 ou plus récent | avec charge .NET MAUI |
-| .NET SDK | compatible avec le projet |
-| Émulateur Android / Windows | selon la cible testée |
-
-### Étapes
-
-```bash
-git clone https://github.com/hartz-guillaume-3il/WorkTracker.git
-cd WorkTracker
-```
-
-Ensuite :
-1. ouvrir la solution dans Visual Studio ;
-2. restaurer les dépendances NuGet ;
-3. choisir une cible d’exécution ;
-4. lancer l’application.
-
-## Limites actuelles
-
-| Point | Observation |
-|---|---|
-| Stockage des données | Les projets sont stockés uniquement en mémoire |
-| Persistance | Pas encore de SQLite ou base distante intégrée |
-| Sessions de travail | La navigation vers `SessionsPage` est prévue dans le code, mais dépend de l’implémentation associée |
-| Documentation | README initial très minimal avant cette mise à jour |
-
-## Évolutions possibles
-
-- ajout d’une persistance SQLite ;
-- gestion complète des sessions par projet ;
-- statistiques de temps passé ;
-- amélioration du design UI ;
-- injection de dépendances au lieu d’un singleton manuel ;
-- tests unitaires sur les services et ViewModels.
-
-## Exemple de logique d’ajout de projet
+Exemple d’ajout de projet :
 
 ```csharp
 [RelayCommand]
@@ -204,13 +190,48 @@ private async Task Save()
 }
 ```
 
-## Résumé
+## Lancer le projet
 
-WorkTracker constitue une base propre pour un projet pédagogique MAUI autour du suivi de projets et du temps de travail.
-L’application met déjà en place :
-- une navigation Shell ;
-- une séparation entre vues, modèles, services et ViewModels ;
-- un chronomètre fonctionnel ;
-- un module simple de gestion de projets.
+### Prérequis
 
-Le projet est donc bien adapté pour une montée en complexité progressive, notamment avec l’ajout de persistance et de fonctionnalités métiers supplémentaires.
+| Outil | Besoin |
+|---|---|
+| Visual Studio | Développement et exécution MAUI |
+| Workload .NET MAUI | Obligatoire |
+| SDK .NET compatible | Obligatoire |
+
+### Commandes de base
+
+```bash
+git clone https://github.com/hartz-guillaume-3il/WorkTracker.git
+cd WorkTracker
+```
+
+Puis :
+1. ouvrir la solution dans Visual Studio ;
+2. restaurer les packages NuGet ;
+3. choisir une plateforme cible ;
+4. lancer l’exécution.
+
+## Résumé architectural
+
+| Couche | Contenu |
+|---|---|
+| Interface | `Views/*.xaml` |
+| Présentation | `Models/ViewModels/*` |
+| Métier | `Models/*.cs` |
+| Services | `Services/*.cs` |
+| Configuration | `App.xaml`, `AppShell.xaml`, `MauiProgram.cs` |
+| Ressources | `Resources/*` |
+
+## Conclusion
+
+WorkTracker est organisé selon une architecture propre et progressive, adaptée à un projet pédagogique MAUI.
+La structure du dépôt montre une séparation claire entre :
+- les données métier ;
+- la logique de présentation ;
+- les services ;
+- les vues ;
+- la configuration globale de l’application.
+
+Cette organisation facilite l’évolution future du projet, notamment pour enrichir la gestion des sessions, améliorer la persistance et renforcer la maintenabilité du code.
