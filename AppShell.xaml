@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="WorkTracker.AppShell"
+    x:Class="WorkTracker.MonApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:WorkTracker.MonApp.Views"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:WorkTracker.MonApp.Views">
 
     <TabBar>
-        <ShellContent
-            Title="Chrono"
-            ContentTemplate="{DataTemplate views:ChronoPage}" />
-        <ShellContent
-            Title="Projets"
-            ContentTemplate="{DataTemplate views:ProjectsPage}" />
-        <ShellContent
-            Title="À propos"
-            ContentTemplate="{DataTemplate views:AboutPage}" />
+        <ShellContent Title="Chrono" ContentTemplate="{DataTemplate views:ChronoPage}" />
+        <ShellContent Title="Projets" ContentTemplate="{DataTemplate views:ProjectsPage}" />
+        <ShellContent Title="À propos" ContentTemplate="{DataTemplate views:AboutPage}" />
     </TabBar>
-
 </Shell>

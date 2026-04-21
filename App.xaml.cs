@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using WorkTracker.MonApp;
 
 namespace WorkTracker
 {
@@ -8,7 +9,6 @@ namespace WorkTracker
         {
             InitializeComponent();
         }
-
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new AppShell());
