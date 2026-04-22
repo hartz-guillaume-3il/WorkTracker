@@ -18,7 +18,7 @@ public partial class AboutPage : ContentPage
     /// </summary>
     private async void OnWebsiteClicked(object sender, EventArgs e)
     {
-        if (BindingContext is MonApp.ViewModels.AboutViewModel vm)
+        if (BindingContext is MonApp.Models.ViewModels.AboutViewModel vm)
             await Launcher.Default.OpenAsync(vm.WebsiteUrl);
     }
 }

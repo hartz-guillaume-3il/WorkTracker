@@ -3,8 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using WorkTracker.MonApp.Models;
 using WorkTracker.MonApp.Services;
 
-namespace WorkTracker.MonApp.ViewModels;
-
+namespace WorkTracker.MonApp.Models.ViewModels;
 /// <summary>
 /// ViewModel de la page d'ajout de projet.
 /// Utilise CommunityToolkit.Mvvm (cf. TP 2, Partie 5).

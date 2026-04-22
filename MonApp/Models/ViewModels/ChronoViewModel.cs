@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace WorkTracker.MonApp.ViewModels;
+namespace WorkTracker.MonApp.Models.ViewModels;
 
 /// <summary>
 /// ViewModel du chronomètre — version CommunityToolkit.Mvvm.

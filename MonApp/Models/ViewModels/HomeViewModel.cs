@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace WorkTracker.MonApp.ViewModels
+namespace WorkTracker.MonApp.Models.ViewModels
 {
     public class HomeViewModel : INotifyPropertyChanged
     {

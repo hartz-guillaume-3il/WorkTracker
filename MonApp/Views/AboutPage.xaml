@@ -11,7 +11,7 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:WorkTracker.MonApp.ViewModels"
+    xmlns:vm="clr-namespace:WorkTracker.MonApp.Models.ViewModels"
     x:Class="WorkTracker.MonApp.Views.AboutPage"
     Title="À propos">
 

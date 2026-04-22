@@ -1,4 +1,4 @@
-﻿namespace WorkTracker.MonApp.ViewModels;
+﻿namespace WorkTracker.MonApp.Models.ViewModels;
 
 /// <summary>
 /// ViewModel de la page "À propos".

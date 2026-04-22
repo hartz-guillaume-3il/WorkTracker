@@ -1,4 +1,4 @@
-using WorkTracker.MonApp.ViewModels;
+using WorkTracker.MonApp.Models.ViewModels;
 
 namespace WorkTracker.MonApp.Views;
 

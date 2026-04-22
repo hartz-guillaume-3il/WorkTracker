@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace WorkTracker.MonApp.ViewModels
+namespace WorkTracker.MonApp.Models.ViewModels
 {
     public class RelayCommand : ICommand
     {
