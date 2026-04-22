@@ -1,7 +1,6 @@
 ﻿// TODO : ajouter using SQLite;
 
 using SQLite;
-
 using WorkTracker.MonApp.Models;
 
 namespace WorkTracker.MonApp.Services;

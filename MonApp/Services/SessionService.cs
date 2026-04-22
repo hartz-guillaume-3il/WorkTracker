@@ -2,6 +2,10 @@
 
 namespace WorkTracker.MonApp.Services;
 
+/// <summary>
+/// Service de gestion des sessions de travail — stockage en mémoire.
+/// Même pattern que ProjectService.
+/// </summary>
 public class SessionService
 {
     public static readonly SessionService Instance = new();
@@ -9,44 +13,26 @@ public class SessionService
     private readonly List<WorkSession> _sessions = new();
     private int _nextId = 1;
 
-    private SessionService()
+    private SessionService() { }
+
+    /// <summary>Retourne toutes les sessions d'un projet donné.</summary>
+    public IReadOnlyList<WorkSession> GetByProject(int projectId)
     {
-        Add(new WorkSession
-        {
-            ProjectId = 1,
-            StartTime = DateTime.Now.AddDays(-2).AddHours(-3),
-            EndTime = DateTime.Now.AddDays(-2).AddHours(-1),
-            Note = "Maquettage"
-        });
+        List<WorkSession> projectSessions = new();
 
-        Add(new WorkSession
-        {
-            ProjectId = 1,
-            StartTime = DateTime.Now.AddDays(-1).AddHours(-4),
-            EndTime = DateTime.Now.AddDays(-1).AddHours(-2),
-            Note = "Développement"
-        });
+        projectSessions.AddRange(_sessions.Where(s => s.ProjectId == projectId));   
 
-        Add(new WorkSession
-        {
-            ProjectId = 2,
-            StartTime = DateTime.Now.AddHours(-5),
-            EndTime = DateTime.Now.AddHours(-3),
-            Note = "Tests API"
-        });
+        return projectSessions;
     }
 
-    public List<WorkSession> GetByProject(int projectId)
-    {
-        return _sessions
-            .Where(s => s.ProjectId == projectId)
-            .OrderByDescending(s => s.StartTime)
-            .ToList();
-    }
-
+    /// <summary>Ajoute une session et lui attribue un Id.</summary>
     public void Add(WorkSession session)
     {
-        session.Id = _nextId++;
+        // TODO Partie 4 : affecter _nextId, incrémenter, ajouter à _sessions
+        session.Id = _nextId;
+        _nextId++;
         _sessions.Add(session);
     }
+
+    public void Delete(WorkSession session) => _sessions.Remove(session);
 }

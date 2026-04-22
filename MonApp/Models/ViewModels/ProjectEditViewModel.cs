@@ -5,6 +5,10 @@ using WorkTracker.MonApp.Services;
 
 namespace WorkTracker.MonApp.ViewModels;
 
+/// <summary>
+/// ViewModel de la page d'ajout de projet.
+/// Utilise CommunityToolkit.Mvvm (cf. TP 2, Partie 5).
+/// </summary>
 public partial class ProjectEditViewModel : ObservableObject
 {
     [ObservableProperty]
@@ -18,15 +22,24 @@ public partial class ProjectEditViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(Name))
         {
-            await Shell.Current.DisplayAlert( "Champ requis", "Le nom du projet ne peut pas être vide.", "OK");
+            // DisplayAlert n'est pas accessible depuis un ViewModel sans référence à la page.
+            // On utilise Shell.Current.DisplayAlert, disponible globalement.
+            await Shell.Current.DisplayAlertAsync(
+                "Champ requis", "Le nom du projet ne peut pas être vide.", "OK");
             return;
         }
+
         var project = new Project
         {
             Name = Name.Trim(),
-            Description = Description.Trim()
+            Description = Description.Trim(),
         };
-        ProjectService.Instance.Add(project);
+
+        ProjectRepository.Instance.Add(project);
+
+        // ".." remonte d'un niveau dans la pile de navigation Shell —
+        // équivalent du bouton Retour natif de chaque plateforme.
         await Shell.Current.GoToAsync("..");
     }
+
 }

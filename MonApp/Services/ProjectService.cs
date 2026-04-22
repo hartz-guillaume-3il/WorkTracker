@@ -18,23 +18,40 @@ namespace WorkTracker.MonApp.Services;
 /// </summary>
 public class ProjectService
 {
+    // Instance unique partagée entre tous les ViewModels
     public static readonly ProjectService Instance = new();
+
     private readonly ObservableCollection<Project> _projects = new();
+
     private ProjectService()
     {
-        Add(new Project { Name = "Site web", Description = "Refonte du site vitrine" });
-        Add(new Project { Name = "API REST", Description = "Développement backend" });
-        Add(new Project { Name = "Formation", Description = "Préparation des TPs MAUI" });
+        _projects.Add(new Project { Id = 1, Name = "Site web", Description = "Refonte du site vitrine" });
+        _projects.Add(new Project { Id = 2, Name = "API REST", Description = "Développement backend" });
+        _projects.Add(new Project { Id = 3, Name = "Formation", Description = "Préparation des TPs MAUI" });
+        _projects.Add(new Project { Id = 4, Name = "Formation", Description = "Cours de chant" });
+
     }
+
+    /// <summary>Retourne la liste complète des projets.</summary>
     public IReadOnlyList<Project> GetAll()
     {
         return _projects;
     }
+
+    /// <summary>Ajoute un projet et lui attribue un Id auto-incrémenté.</summary>
     public void Add(Project project)
     {
-        project.Id = _projects.Any() ? _projects.Max(p => p.Id) + 1 : 1;
+        var id = -1;
+        foreach (Project p in _projects)
+        {
+            if (p.Id >id) id=p.Id;
+        }
+        project.Id = id+1;
         _projects.Add(project);
+
     }
+
+    /// <summary>Supprime un projet de la liste.</summary>
     public void Delete(Project project)
     {
         _projects.Remove(project);

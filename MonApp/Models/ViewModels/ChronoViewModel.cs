@@ -1,34 +1,36 @@
-using System;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.Dispatching;
-using Microsoft.Maui.Controls;
 
 namespace WorkTracker.MonApp.ViewModels;
 
-// IMPORTANT : La classe doit être "partial" pour que le Toolkit puisse générer le code manquant
+/// <summary>
+/// ViewModel du chronomètre — version CommunityToolkit.Mvvm.
+///
+/// Comparez ce fichier avec cor_ChronoViewModel.cs :
+/// - [ObservableProperty] remplace le champ + propriété + OnPropertyChanged
+/// - [RelayCommand] remplace l'instanciation manuelle de RelayCommand
+/// - La classe hérite de ObservableObject (qui implémente INotifyPropertyChanged)
+/// - Le mot-clé partial est obligatoire : le toolkit génère du code à la compilation
+/// </summary>
 public partial class ChronoViewModel : ObservableObject
 {
-    // ── Timer ────────────────────────────────────────────────────────────────
     private readonly IDispatcherTimer _timer;
     private TimeSpan _elapsed = TimeSpan.Zero;
 
-    // ── Propriétés (Générées automatiquement par le Toolkit) ─────────────────
+    // [ObservableProperty] génère automatiquement :
+    //   - une propriété publique IsRunning avec get/set
+    //   - l'appel à OnPropertyChanged dans le setter
+    [ObservableProperty]
+    private bool _isRunning;
 
     [ObservableProperty]
     private string _nomProjet = "Aucun projet sélectionné";
 
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(LabelBouton))] // Magie : Notifie que LabelBouton change quand _isRunning change !
-    private bool _isRunning;
-
-    // ── Propriétés calculées ─────────────────────────────────────────────────
-
+    // TempsEcoule et LabelBouton sont calculées — on les notifie manuellement
+    // car leur valeur n'est pas stockée dans un champ simple.
     public string TempsEcoule => _elapsed.ToString(@"hh\:mm\:ss");
+    public string LabelBouton => IsRunning ? "⏹  Arrêter" : "▶  Démarrer";
 
-    public string LabelBouton => IsRunning ? "🛑  Arrêter" : "▶  Démarrer";
-
-    // ── Constructeur ─────────────────────────────────────────────────────────
     public ChronoViewModel()
     {
         _timer = Application.Current!.Dispatcher.CreateTimer();
@@ -36,34 +38,26 @@ public partial class ChronoViewModel : ObservableObject
         _timer.Tick += OnTimerTick;
     }
 
-    // ── Logique ─────────────────────────────────────────────────────────────
-
     private void OnTimerTick(object? sender, EventArgs e)
     {
         _elapsed = _elapsed.Add(TimeSpan.FromSeconds(1));
-        // On notifie manuellement TempsEcoule car il dépend d'une variable qui n'est pas un ObservableProperty
         OnPropertyChanged(nameof(TempsEcoule));
     }
 
-    // Le Toolkit va générer automatiquement une ICommand appelée "DemarrerCommand"
+    // [RelayCommand] génère une propriété ToggleCommand de type IRelayCommand
+    // et câble automatiquement la méthode Toggle comme cible.
+    // Dans le XAML : Command="{Binding ToggleCommand}"
     [RelayCommand]
-    private void Demarrer()
+    private void Toggle()
     {
-        if (IsRunning) return;
-        _timer.Start();
-        IsRunning = true; // Modifie _isRunning et notifie IsRunning et LabelBouton
+        if (IsRunning) { _timer.Stop(); IsRunning = false; }
+        else { _timer.Start(); IsRunning = true; }
+        // IsRunning est une propriété générée par [ObservableProperty]
+        // Son setter appelle automatiquement OnPropertyChanged.
+        // Mais LabelBouton dépend de IsRunning et n'est pas générée — on notifie manuellement.
+        OnPropertyChanged(nameof(LabelBouton));
     }
 
-    // Génère une ICommand appelée "ArreterCommand"
-    [RelayCommand]
-    private void Arreter()
-    {
-        if (!IsRunning) return;
-        _timer.Stop();
-        IsRunning = false;
-    }
-
-    // Génère une ICommand appelée "ResetCommand"
     [RelayCommand]
     private void Reset()
     {
@@ -71,15 +65,6 @@ public partial class ChronoViewModel : ObservableObject
         _elapsed = TimeSpan.Zero;
         IsRunning = false;
         OnPropertyChanged(nameof(TempsEcoule));
-    }
-
-    // Génère une ICommand appelée "ToggleCommand"
-    [RelayCommand]
-    private void Toggle()
-    {
-        if (IsRunning)
-            Arreter();
-        else
-            Demarrer();
+        OnPropertyChanged(nameof(LabelBouton));
     }
 }
